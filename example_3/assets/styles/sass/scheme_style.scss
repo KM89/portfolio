@@ -1,0 +1,405 @@
+/* -----------------------
+	Mixins
+   ------------------------ */
+
+@mixin responsiveMax($maxWidth) {
+	@media only screen and (max-width: $maxWidth) {
+		@content;
+	}
+}
+
+/* 1ST SCHEME STYLES*/
+
+.theme1 {
+
+	.header-wrapper {
+		background: url(../../images/header_image_1.jpg) no-repeat;
+		background-size: 100% 100%;
+	}
+
+	.button:hover {
+		outline: 3px double #9B59B6;
+	}
+
+	.color-scheme-button {
+		border-bottom: 1px solid #9B59B6;
+	}
+
+	@include responsiveMax(550px) {
+		.nav-list li:hover {
+			border-right: 1px solid #9B59B6 !important;
+			border-left: 1px solid #9B59B6 !important;
+		}
+	}
+
+	.header-button,
+	.loupe,
+	.social-link {
+		border: 6px solid rgba(155,89,182,0.5);
+		background-clip: padding-box !important;
+	}
+
+	.picture-caption-container {
+		border-top: 6px solid rgba(155,89,182,0.5);
+		background-clip: padding-box;
+	}
+
+	.picture-caption-container,
+	.button,
+	.footer-wrapper {
+		background-color: #9B59B6;
+	}
+
+	.introduction-1st-section-headline::before {
+		background: url(../../images/sketch_icon_1.png);
+	}
+
+	.introduction-2nd-section-headline::before {
+		background: url(../../images/design_icon_1.png);
+	}
+
+	.introduction-3rd-section-headline::before {
+		background: url(../../images/finalize_icon_1.png) center center no-repeat;
+	}
+
+	@include responsiveMax(402px) {
+		.introduction-1st-section-headline,
+		.introduction-2nd-section-headline,
+		.introduction-3rd-section-headline {
+			
+			&::before {
+				background-size: contain;
+			}
+		}
+	}
+
+	.portfolio-picture-one {
+		background: url(../../images/wallpaper_1_1.jpg) no-repeat;
+	}
+
+	.portfolio-picture-two {
+		background: url(../../images/wallpaper_1_2.jpg) no-repeat;
+	}
+
+	.portfolio-picture-three {
+		background: url(../../images/wallpaper_1_3.jpg) no-repeat;
+	}
+
+	.portfolio-picture-four {
+		background: url(../../images/wallpaper_1_4.jpg) no-repeat;
+	}
+
+	.loupe {
+		background: url(../../images/lupa.png) center center no-repeat #9B59B6;
+		background-clip: padding-box;
+	}
+
+	.portfolio-button {
+		background: url(../../images/arrow_1.png) 163px 17px no-repeat #9B59B6;
+		@include responsiveMax(402px) {
+			background: url(../../images/arrow_1.png) 135px 9px no-repeat #9B59B6;
+		}
+	}
+
+	.social-link-one {
+		background: url(../../images/twitter_icon_1.png) center center no-repeat #FFF;
+	}
+
+	.social-link-two {
+		background: url(../../images/dribbble_icon_1.png) center center no-repeat #FFF;	
+	}
+
+	.social-link-three {
+		background: url(../../images/facebook_icon_1.png) center center no-repeat #FFF;
+	}
+
+	@include responsiveMax(402px) {
+		.social-link {	
+			background-size: 50%;
+		}
+
+		.social-link-three {
+			background-size: 16px;
+		}
+	}
+
+/* 1ST SCHEME FONT COLORS */
+
+	.nav-list li:hover a,
+	.color-scheme-button,
+	.introduction-headline,
+	.introduction-1st-section-headline,
+	.introduction-2nd-section-headline,
+	.introduction-3rd-section-headline,
+	.contact-block-headline {
+		color: #9B59B6;
+	}
+
+	.picture-caption-text {
+		color: #6B3F7D;
+	}
+}
+
+/* 2ND SCHEME STYLES*/
+
+.theme2 {
+
+	.header-wrapper {
+		background: url(../../images/header_image_2.jpg) no-repeat;
+		background-size: 100% 100%;
+	}
+
+	.button:hover {
+		outline: 3px double #E74C3C;
+	}
+
+	.color-scheme-button {
+		border-bottom: 1px solid #E74C3C;
+	}
+
+	@include responsiveMax(550px) {
+		.nav-list li:hover {
+			border-right: 1px solid #E74C3C !important;
+			border-left: 1px solid #E74C3C !important;
+		}
+	}
+
+	.header-button,
+	.loupe,
+	.social-link {
+		border: 6px solid rgba(231,76,60,0.5);
+		background-clip: padding-box !important;
+	}
+
+	.picture-caption-container {
+		border-top: 6px solid rgba(231,76,60,0.5);
+		background-clip: padding-box;
+	}
+
+	.picture-caption-container,
+	.button,
+	.footer-wrapper {
+		background-color: #E74C3C;
+	}
+
+	.introduction-1st-section-headline::before {
+		background: url(../../images/sketch_icon_2.png);
+	}
+
+	.introduction-2nd-section-headline::before {
+		background: url(../../images/design_icon_2.png);
+	}
+
+	.introduction-3rd-section-headline::before {
+		background: url(../../images/finalize_icon_2.png) center center no-repeat;
+	}
+
+	@include responsiveMax(402px) {
+		.introduction-1st-section-headline,
+		.introduction-2nd-section-headline,
+		.introduction-3rd-section-headline {
+
+			&::before {
+				background-size: contain;
+			}
+		}
+	}
+
+	.portfolio-picture-one {
+		background: url(../../images/wallpaper_2_1.jpg) no-repeat;
+	}
+
+	.portfolio-picture-two {
+		background: url(../../images/wallpaper_2_2.jpg) no-repeat;
+	}
+
+	.portfolio-picture-three {
+		background: url(../../images/wallpaper_2_3.jpg) no-repeat;
+	}
+
+	.portfolio-picture-four {
+		background: url(../../images/wallpaper_2_4.jpg) no-repeat;
+	}
+
+	.loupe {
+		background: url(../../images/lupa.png) center center no-repeat #E74C3C;
+		background-clip: padding-box;
+	}
+
+	.portfolio-button {
+		background: url(../../images/arrow_1.png) 163px 17px no-repeat #E74C3C;
+		@include responsiveMax(402px) {
+			background: url(../../images/arrow_1.png) 135px 9px no-repeat #E74C3C;
+		}
+	}
+
+	.social-link-one {
+		background: url(../../images/twitter_icon_2.png) center center no-repeat #FFF;
+	}
+
+	.social-link-two {
+		background: url(../../images/dribbble_icon_2.png) center center no-repeat #FFF;	
+	}
+
+	.social-link-three {
+		background: url(../../images/facebook_icon_2.png) center center no-repeat #FFF;
+	}
+
+	@include responsiveMax(402px) {
+		.social-link {	
+			background-size: 50%;
+		}
+
+		.social-link-three {
+			background-size: 16px;
+		}
+	}
+
+/* 2ND SCHEME FONT COLORS */
+
+	.nav-list li:hover a,
+	.color-scheme-button,
+	.introduction-headline,
+	.introduction-1st-section-headline,
+	.introduction-2nd-section-headline,
+	.introduction-3rd-section-headline,
+	.contact-block-headline {
+		color: #E74C3C;
+	}
+
+	.picture-caption-text {
+		color: #9D3B31;
+	}
+}
+
+/* 3RD SCHEME STYLES*/
+
+.theme3 {
+
+	.header-wrapper {
+		background: url(../../images/header_image_3.jpg) no-repeat;
+		background-size: 100% 100%;
+	}
+
+	.button:hover {
+		outline: 3px double #1ABC9C;
+	}
+
+	.color-scheme-button {
+		border-bottom: 1px solid #1ABC9C;
+	}
+
+	@include responsiveMax(550px) {
+		.nav-list li:hover {
+			border-right: 1px solid #1ABC9C !important;
+			border-left: 1px solid #1ABC9C !important;
+		}
+	}
+
+	.header-button,
+	.loupe,
+	.social-link {
+		border: 6px solid rgba(26,188,156,0.5);
+		background-clip: padding-box !important;
+	}
+
+	.picture-caption-container {
+		border-top: 6px solid rgba(26,188,156,0.5);
+		background-clip: padding-box;
+	}
+
+	.picture-caption-container,
+	.button,
+	.footer-wrapper {
+		background-color: #1ABC9C;
+	}
+
+	.introduction-1st-section-headline::before {
+		background: url(../../images/sketch_icon_3.png);
+	}
+
+	.introduction-2nd-section-headline::before {
+		background: url(../../images/design_icon_3.png);
+	}
+
+	.introduction-3rd-section-headline::before {
+		background: url(../../images/finalize_icon_3.png) center center no-repeat;
+	}
+
+	@include responsiveMax(402px) {
+		.introduction-1st-section-headline,
+		.introduction-2nd-section-headline,
+		.introduction-3rd-section-headline {
+
+			&::before {
+				background-size: contain;
+			}
+		}
+	}
+
+	.portfolio-picture-one {
+		background: url(../../images/wallpaper_3_1.jpg) no-repeat;
+	}
+
+	.portfolio-picture-two {
+		background: url(../../images/wallpaper_3_2.jpg) no-repeat;
+	}
+
+	.portfolio-picture-three {
+		background: url(../../images/wallpaper_3_3.jpg) no-repeat;
+	}
+
+	.portfolio-picture-four {
+		background: url(../../images/wallpaper_3_4.jpg) no-repeat;
+	}
+
+	.loupe {
+		background: url(../../images/lupa.png) center center no-repeat #1ABC9C;
+		background-clip: padding-box;
+	}
+
+	.portfolio-button {
+		background: url(../../images/arrow_1.png) 163px 17px no-repeat #1ABC9C;
+		@include responsiveMax(402px) {
+			background: url(../../images/arrow_1.png) 135px 9px no-repeat #1ABC9C;
+		}
+	}
+
+	.social-link-one {
+		background: url(../../images/twitter_icon_3.png) center center no-repeat #FFF;
+	}
+
+	.social-link-two {
+		background: url(../../images/dribbble_icon_3.png) center center no-repeat #FFF;	
+	}
+
+	.social-link-three {
+		background: url(../../images/facebook_icon_3.png) center center no-repeat #FFF;
+	}
+
+	@include responsiveMax(402px) {
+		.social-link {	
+			background-size: 50%;
+		}
+
+		.social-link-three {
+			background-size: 16px;
+		}
+	}
+
+/* 3RD SCHEME FONT COLORS */
+
+	.nav-list li:hover a,
+	.color-scheme-button,
+	.introduction-headline,
+	.introduction-1st-section-headline,
+	.introduction-2nd-section-headline,
+	.introduction-3rd-section-headline,
+	.contact-block-headline {
+		color: #1ABC9C;
+	}
+
+	.picture-caption-text {
+		color: #297465;
+	}
+}
