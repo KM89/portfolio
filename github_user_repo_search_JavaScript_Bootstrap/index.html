@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Repositories</title>
+	<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style>
+		.panel {
+			margin-top: 50px;
+		}
+
+		.loader {
+			display: none;
+			position: absolute;
+			top: 183px;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			width: 50px;
+			height: 50px;
+			margin: 0 auto;
+			background: url(assets/images/7.gif) center center;
+			background-size: cover;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="form-group">
+							<input id="usernameInput" type="text" class="form-control" name="username" placeholder="Username" list="usersList">
+							<datalist id="usersList">
+								
+							</datalist>
+						</div>
+						<div class="form-group">
+							<button id="submitButton" type="submit" class="btn btn-block">Search</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="loader"></div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="table-responsive">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>	
+		function App(){
+			const btn = document.querySelector('#submitButton'),
+				  loader = document.querySelector('.loader'),
+				  usernameInput = document.querySelector('#usernameInput'),
+				  tableContainer = document.querySelector(".table-responsive"),
+			 	  datalist = document.querySelector('#usersList');
+
+			var BuildTable = (data) => {
+				loader.style.display = 'none';
+	    		let table = document.createElement("table");
+		    	table.className = "table";
+		    	let thead = document.createElement("thead"),
+		    	    tbody = document.createElement("tbody"),
+		    	    headRow = document.createElement("tr"),
+		    	    th = document.createElement("th");
+	      		th.appendChild(document.createTextNode(data[0].owner.login));
+	      		headRow.appendChild(th);
+	      		thead.appendChild(headRow);
+	      		table.appendChild(thead);
+	      		data.forEach((array) => {
+	      			let tr = document.createElement("tr"),
+	      			    td = document.createElement("td"),
+	      			    a = document.createElement("a");
+	   				a.href = `https://github.com/${array.owner.login}/${array.name}`;
+	   				a.target = "_blank";
+	   				a.appendChild(document.createTextNode(array.name));
+	   				td.appendChild(a);
+	   				tr.appendChild(td);
+	   				tbody.appendChild(tr);   			
+	      		});
+	      		table.appendChild(tbody);
+	   			tableContainer.appendChild(table);
+		    }
+
+		    var HandleRequest = (url, DataHandler) => {
+		    	fetch(url)
+		    	.then((resp) => resp.json())
+		    	.then((data) => DataHandler(data))
+		    	.catch((error) =>
+		    		console.log(error)
+		    	);
+		    }
+
+		    var AutocompleteOptions = (data) => {	
+				datalist.innerHTML = "";		
+		    	data.items.forEach((user) => {
+		    		let option = document.createElement("option");
+					option.appendChild(document.createTextNode(user.login));
+	    			datalist.appendChild(option);	    		
+		    	});
+		    }
+		    
+			btn.addEventListener('click', () => {
+				loader.style.display = 'block';
+				tableContainer.innerHTML = "";
+				HandleRequest(`https://api.github.com/users/${usernameInput.value}/repos`, BuildTable);	
+			});
+
+		    var timeout = null;
+
+			usernameInput.addEventListener('keyup', (e) => {
+				var inputValue = e.target.value;
+				var charCount = inputValue.length;
+				clearTimeout(timeout);
+				if(charCount > 2){
+					timeout = setTimeout(HandleRequest(`https://api.github.com/search/users?q=${inputValue}&access_token=e7e01119b0003fbed4464cbe6aca89f02e4d4dd7`, AutocompleteOptions), 300);
+				}
+			});
+		}
+		App();
+	</script>
+</body>
+</html>
